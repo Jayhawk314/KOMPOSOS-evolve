@@ -1,0 +1,3 @@
+# Downloaded data caches (PanTHERIA, Phenoscape, fish/mammal chronograms) — large, re-fetchable
+cache/
+__pycache__/
