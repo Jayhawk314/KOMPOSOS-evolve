@@ -3,7 +3,7 @@
 ## Project Identity
 
 **KOMPOSOS-IV** is the fused categorical runtime. It merges KOMPOSOS-III's
-mathematical power with Orion's "runtime IS the category" architecture.
+mathematical power"runtime IS the category" architecture.
 
 One class (Category) replaces III's KomposOSStore + Category + EnrichedCategory +
 StoreAdapter. Objects and morphisms persist automatically, carry enrichment
