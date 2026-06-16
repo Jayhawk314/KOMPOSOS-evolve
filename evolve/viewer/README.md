@@ -99,6 +99,26 @@ figure.
 - Trait values are real PanTHERIA measurements; missing values (`-999`) are shown
   as "no data" and colored grey, never imputed.
 
+## Verifying every viewer (`verify_all.py`) — the standing CI guard
+
+```bash
+python evolve/viewer/verify_all.py            # all built viewers (exit 0 = pass)
+python evolve/viewer/verify_all.py fish bird  # a subset
+python evolve/viewer/verify_all.py --strict   # missing HTML is a hard failure (CI mode)
+```
+
+This is the structural fix for the "looked done, was broken" failure mode (a
+viewer that opens without crashing can still render the wrong data). It loads each
+self-contained HTML in headless Chromium and asserts: **zero page/console errors**
+throughout; a sane embedded species count; for every convergence overlay a verdict
+badge + tier, a legend, and cross-lineage bridges **when ≥2 independent origins
+exist**; and origin counts above biological sanity floors. It self-discovers each
+viewer's real base colorings from the dropdown, so it never tests a control the
+viewer doesn't offer. The viewers' HTML is committed, so
+[`.github/workflows/verify-viewers.yml`](../../.github/workflows/verify-viewers.yml)
+runs this on every push/PR with only a headless browser — no data re-download.
+(`verify_bird_tree.py` is the original single-viewer pattern this generalizes.)
+
 ## Birds (Phase 1) — same pattern, new clade
 
 The bird viewer is the first proof that the exporter generalizes beyond mammals.
@@ -176,9 +196,46 @@ python evolve/viewer/export_vertebrate_tree.py   # after the 3 clade viewers exi
 Splices the fish, mammal, and bird hierarchies under one dated backbone
 (`Vertebrata → Gnathostomata → {Actinopterygii, Sarcopterygii→Tetrapoda→Amniota→
 {Mammalia, Sauropsida→Aves}}`) — **16,672 species across 3 classes** in one
-navigable view, coloured by Major clade or taxonomic order. Convergence overlays
-stay clade-local for now; this is the navigable skeleton that the cross-class
-convergence work (e.g. aerial locomotion in bats vs. birds) builds on.
+navigable view, coloured by Major clade or taxonomic order. The interactive
+overlays stay clade-local for now; this is the navigable skeleton that the
+cross-class convergence work (below) builds on.
+
+## Cross-class aerial convergence (Track A) — `crossclass_aerial.py`
+
+```bash
+python evolve/crossclass_aerial.py     # -> results/crossclass_aerial.json
+```
+
+The vertebrate splice above is **hierarchy-only** — Fitch origin-counting works on
+topology, but PTP and dated-Mk need real branch lengths *spanning* the classes. So
+this script does the real work: it **grafts** the three dated chronograms onto a
+deep-node-calibrated backbone and runs the identical gauntlet on the dated
+cross-class tree.
+
+- **Backbone (ultrametric, Myr):** Actinopterygii | Sarcopterygii split at **~430
+  Ma** (TimeTree 416–439) and Amniota (Mammalia | Sauropsida) at **~319 Ma** (fossil
+  calibration). Each clade is attached by a stem = `calibration − its crown depth`
+  (fish crown ~368, mammals ~218, birds ~101 Ma). Both deep ages are clock+fossil
+  estimates **independent of the aerial trait**, so they cannot fit the result.
+- **Trait:** aerial = powered flight **or** gliding, clade-coded by external
+  taxonomy — birds (all but flightless ratites + penguins), bats (Chiroptera),
+  flying fish (Exocoetidae), mammalian gliders (Petauridae, Anomaluridae, …).
+- **Result (balanced 1,908-tip graft):** **6 independent origins** of aerial
+  locomotion (3 for the named groups only); **PTP p = 0.001** (z ≈ 57 — strongly
+  clustered, real structured convergence); **Mk p_excess = 1.0** (z ≈ −11 — *far
+  fewer* transitions than neutral drift, i.e. flight is deeply conserved once gained,
+  **not** excess homoplasy) → **Tier 2**. The same honest downgrade every body-plan
+  overlay shows: structured and real, not inflated to T3.
+- **Sensitivity** (built in): 6 origins / T2 stable across three non-carrier sample
+  seeds; 3 origins / T2 with mammalian gliders excluded. Effect sizes (z vs both
+  nulls) are reported in the JSON.
+
+**Honest caveats:** the graft rests on two point calibrations (reported, trait-
+independent); non-carrier taxa are seeded-subsampled for tractability while **every
+aerial carrier is kept**, so no origin is hidden; flightless birds are coded
+non-aerial (a reversal the reconstruction handles, not a phantom origin). This is
+the verified *analysis*; rendering it as an interactive overlay inside
+`vertebrate_tree.html` is the next presentation step.
 
 ## Molecular lens (Phase M) — ESM-C Prestin pilot
 
@@ -190,6 +247,42 @@ predicts. At 14 taxa with the 300M model it is an **honest negative**
 embeddings capture Prestin's broad conservation but not the convergent
 substitutions at this scale. Logged transparently in `results/prestin_esmc.json`,
 not forced to a fit.
+
+### Diagnosis — *why* the pilot washed out (`esmc_diagnose.py`)
+
+```bash
+python evolve/esmc_diagnose.py        # -> results/prestin_esmc_diagnosis.json
+```
+
+Before scaling to ESM-C 600M/6B or more proteins, this script runs three
+self-contained diagnostics on the **same 14 cached sequences/embeddings**:
+
+1. **Geometry.** PCA of the mean-pooled vectors: echolocators only *weakly*
+   separate (echo-vs-rest cosine silhouette **+0.13**); PC1 partly tracks sequence
+   length (r = −0.45), a confound. So mean-pooling barely sees the convergence.
+2. **Does ESM beat raw % identity?** Running the *identical* ancestry-subtracted
+   test on a %-identity distance gives **p = 0.9995** (echo pairs are *less*
+   similar than phylogeny predicts), versus ESM mean-pool **p = 0.13**. So ESM-C
+   *does* add function-aware information over the trivial baseline — just not
+   enough, mean-pooled, to clear significance.
+3. **Localize.** Data-derived parallel-substitution sites (columns where echo bats
+   *and* toothed whales share a residue that differs from each clade's immediate
+   non-echo relative — the Liu/Li 2010 signature, derived here not asserted) number
+   just **2 of 741 residues** (ref positions 576=K, 641=V). A per-residue ESM test
+   restricted to those sites is strongly significant (echo resid −0.019,
+   **p = 0.0009**, controls pass).
+
+**Honest verdict.** The pilot's negative was a **measurement artifact of
+mean-pooling**, not an absence of molecular convergence: the signal lives in
+~0.3 % of the protein and averaging over 741 residues dilutes it ~370×. **Circularity
+caveat (stated in the JSON):** those 2 sites were *selected using the echo labels*,
+so the per-site test is partly circular — a per-site **%-identity** baseline at the
+same columns is *also* significant (p = 0.003), showing the per-site significance is
+mostly site-selection, not independent ESM discovery. The robust, non-circular
+takeaways are (1) ESM beats %-identity mean-pooled and (2) the localization/dilution
+explanation. **The next honest step is non-circular site selection** (literature
+ASR or a held-out tree) feeding per-residue ESM at 600M — *then* the molecular tier
+is earned, not assumed.
 
 ## Not yet (later slices)
 

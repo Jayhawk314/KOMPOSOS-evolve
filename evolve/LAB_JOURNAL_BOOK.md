@@ -188,6 +188,16 @@ The pilot completed, and the results were an **honest negative**:
 
 **Conclusion:** At a sample size of 14, and using the global sequence embedding rather than targeted active-site residues, the 300M model captures general mammalian conservation but the specific convergent echolocation signal is drowned out by structural noise. The system documented this transparently rather than overfitting.
 
+### The follow-up diagnosis (`esmc_diagnose.py`) — *why* it washed out
+
+Rather than scaling straight to a larger model, we asked why the pilot failed, with three diagnostics on the *same* 14 cached sequences:
+
+1. **Geometry.** A PCA of the mean-pooled vectors shows echolocators only *weakly* separate (echo-vs-rest cosine silhouette **+0.13**), and PC1 partly tracks sequence length (r = −0.45) — a confound, not function.
+2. **ESM vs. a trivial baseline.** Running the identical ancestry-subtracted test on a raw %-identity distance gives **p = 0.9995** (echo pairs read *less* similar than phylogeny predicts), versus ESM mean-pool **p = 0.13**. So the function-aware embedding *does* add signal over % identity — just not enough when averaged.
+3. **Localization.** Parallel-substitution sites — columns where echo bats *and* toothed whales share a residue differing from each clade's immediate non-echolocating relative (the Liu/Li 2010 signature, here **derived from the alignment, not asserted**) — number just **2 of 741 residues** (positions 576=K, 641=V). A per-residue ESM test restricted to those sites is strongly significant (echo residual −0.019, **p = 0.0009**, negative controls pass).
+
+The honest reading: the pilot's negative was a **measurement artifact of mean-pooling**, not an absence of molecular convergence — the signal occupies ~0.3 % of the protein and averaging over 741 residues dilutes it ~370×. And the honesty teeth bite again: those 2 sites were *selected using the echo labels*, so the per-site test is partly **circular**; a per-site %-identity baseline at the same columns is *also* significant (p = 0.003), proving the per-site significance is mostly site-selection, not independent ESM discovery. The two claims that survive without circularity are (1) ESM beats % identity mean-pooled, and (2) the localization/dilution mechanism. A genuinely independent molecular tier requires selecting the convergent sites from an outside source (literature ASR or a held-out tree) and only then running per-residue ESM — ideally at 600M. The diagnosis is logged in `results/prestin_esmc_diagnosis.json`.
+
 ---
 
 ## Chapter 8: Future Horizons & WESyS Integration

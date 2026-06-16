@@ -1,0 +1,66 @@
+{
+  "calibrations_Ma": {
+    "Osteichthyes_split": 430.0,
+    "Amniota": 319.0
+  },
+  "calibration_note": "molecular-clock + fossil ages, independent of the aerial trait; TimeTree Osteichthyes 416-439 Ma, Amniota ~319 Ma",
+  "trait": "aerial locomotion (powered flight or gliding), clade-coded",
+  "main": {
+    "n_tips": 1908,
+    "n_aerial": 1179,
+    "root_state": "nonaerial",
+    "origins": 6,
+    "steps": 15,
+    "ptp": {
+      "observed_steps": 15,
+      "null_mean": 580.36,
+      "null_sd": 9.88,
+      "p_fewer": 0.001,
+      "p_more": 1.0,
+      "n_perm": 999
+    },
+    "ptp_z_clustering": 57.22,
+    "mk": {
+      "observed_steps": 15,
+      "q_hat": 0.0033,
+      "null_mean": 123.94,
+      "null_sd": 9.9,
+      "p_excess": 1.0,
+      "p_deficit": 0.002,
+      "n_sim": 499
+    },
+    "mk_z_excess": -11.0,
+    "tier": 2,
+    "tier_label": "structured homoplasy"
+  },
+  "sensitivity": [
+    {
+      "variant": "seed=1",
+      "origins": 6,
+      "ptp_p_fewer": 0.0033,
+      "mk_p_excess": 1.0,
+      "tier": 2
+    },
+    {
+      "variant": "seed=2",
+      "origins": 6,
+      "ptp_p_fewer": 0.0033,
+      "mk_p_excess": 1.0,
+      "tier": 2
+    },
+    {
+      "variant": "seed=3",
+      "origins": 6,
+      "ptp_p_fewer": 0.0033,
+      "mk_p_excess": 1.0,
+      "tier": 2
+    },
+    {
+      "variant": "no_mammal_gliders",
+      "origins": 3,
+      "ptp_p_fewer": 0.0033,
+      "mk_p_excess": 1.0,
+      "tier": 2
+    }
+  ]
+}

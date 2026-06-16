@@ -9,7 +9,10 @@ trying to do it all at once.
 > Rabosky tree + Phenoscape) and a unified Vertebrata backbone
 > (`export_vertebrate_tree.py`, splices fish+mammals+birds, 16.7k species) both
 > built and headless-verified. Molecular pilot (Phase M): ESM-C Prestin run is an
-> honest negative at 14 taxa (see below). This is the roadmap, not a promise of dates.
+> honest negative at 14 taxa, now **diagnosed** (`esmc_diagnose.py`): the negative
+> is a mean-pooling artifact — the convergence signal is localized to ~2/741
+> residues, so averaging dilutes it ~370× (see below). This is the roadmap, not a
+> promise of dates.
 
 ---
 
@@ -165,11 +168,12 @@ render millions of nodes.
 | **0 ✅** | Mammal viewer + 8 convergence overlays | Upham + PanTHERIA (in repo) | done | — | done |
 | **1 ✅** | **Birds** viewer, same pattern | Jetz tree + AVONET | done | — | done — nectarivory (48 origins), aerial (71), aquatic (35), vertivory (34), flightlessness (ratites+penguins) all recovered |
 | **2 ◑** | Vertebrate multi-class view (fish + mammals + birds folded in; amphibians/squamates next) | Open Tree vertebrate subtree + dated clade trees | medium | medium | ✅ one view spanning 3 classes (`vertebrate_tree.html`, 16.7k species); amphibians/squamates remain |
+| **A ◑** | **Cross-class convergence on a dated backbone** (`crossclass_aerial.py`): graft fish+mammal+bird chronograms via deep-node calibrations, run the full gauntlet | dated clade trees + TimeTree/fossil ages | medium | medium | ✅ aerial locomotion = 6 origins, PTP p=0.001, Mk p_excess=1.0 → **T2** (stable across sensitivity sweep); interactive viewer overlay remains |
 | **3** | **Architecture shift**: data layer + on-demand compute + streaming renderer | (re-platform) | high | medium | render & analyze a >50k-tip clade smoothly |
 | **4** | Plants | Smith & Brown tree + TRY | high | medium | a plant convergence (e.g. C4, succulence) overlay |
 | **5** | **Environment layer** + occurrences → convergence-with-driver | WorldClim/CHELSA + GBIF | high | medium | a trait's origins testable against a shared environmental shift |
 | **6** | All-life backbone | Open Tree (2.3M) + GTDB | very high | high | navigable to any clade; microbe branches flagged for reticulation |
-| **M (parallel)** | **Molecular convergence lens (ESM-C)** — Prestin pilot first (Layer D) | OrthoDB/UniProt sequences + ESM-C | low (pilot) | low | molecular lens independently recovers bat+whale echolocation convergence |
+| **M (parallel) ◑** | **Molecular convergence lens (ESM-C)** — Prestin pilot (negative) + diagnosis done; next is non-circular site selection at 600M (Layer D) | OrthoDB/UniProt sequences + ESM-C | low (pilot) | low | pilot negative at 14 taxa; diagnosed as a mean-pool dilution artifact (signal in ~2/741 residues); independent recovery still pending |
 
 **Recommended immediate step:** Phase 1 (birds). It reuses the exact exporter
 pattern, has superb trait data (AVONET), and famous convergences — so it cheaply

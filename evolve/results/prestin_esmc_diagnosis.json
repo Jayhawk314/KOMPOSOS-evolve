@@ -1,0 +1,141 @@
+{
+  "part1_geometry": {
+    "labels": [
+      "Rhinolophus_bat",
+      "Myotis_bat",
+      "Eptesicus_bat",
+      "Tursiops_dolphin",
+      "Phocoena_porpoise",
+      "Physeter_whale",
+      "Orcinus_orca",
+      "Pteropus_fruitbat",
+      "Balaenoptera_baleen",
+      "Bos_cow",
+      "Equus_horse",
+      "Loxodonta_elephant",
+      "Mus_mouse",
+      "Homo_human"
+    ],
+    "explained_variance_ratio": [
+      0.3972379267215729,
+      0.1781637817621231,
+      0.11542953550815582,
+      0.09868178516626358,
+      0.058319710195064545
+    ],
+    "pc_coords": {
+      "Rhinolophus_bat": [
+        0.0009661773219704628,
+        0.0024892594665288925
+      ],
+      "Myotis_bat": [
+        0.01295152772217989,
+        0.003824634477496147
+      ],
+      "Eptesicus_bat": [
+        0.014089175499975681,
+        -0.0024328771978616714
+      ],
+      "Tursiops_dolphin": [
+        0.007782281376421452,
+        -0.014420973137021065
+      ],
+      "Phocoena_porpoise": [
+        0.0034699449315667152,
+        -0.013624651357531548
+      ],
+      "Physeter_whale": [
+        -0.0076858727261424065,
+        -0.005667960271239281
+      ],
+      "Orcinus_orca": [
+        0.006922014988958836,
+        -0.015160338953137398
+      ],
+      "Pteropus_fruitbat": [
+        0.013607108034193516,
+        0.0029789451509714127
+      ],
+      "Balaenoptera_baleen": [
+        -0.01057355385273695,
+        -0.004959193989634514
+      ],
+      "Bos_cow": [
+        -0.003966181538999081,
+        0.004331296309828758
+      ],
+      "Equus_horse": [
+        0.004750651307404041,
+        0.0027016978710889816
+      ],
+      "Loxodonta_elephant": [
+        -0.0480646938085556,
+        -5.31952828168869e-05
+      ],
+      "Mus_mouse": [
+        -0.007811280898749828,
+        0.02013579197227955
+      ],
+      "Homo_human": [
+        0.013562631793320179,
+        0.01985757239162922
+      ]
+    },
+    "echo_vs_rest_silhouette_cosine": 0.12899421155452728,
+    "pc1_vs_seqlength_corr": -0.44932934359606413
+  },
+  "part2_esm_vs_identity": {
+    "esm_cosine": {
+      "observed_cross_order_echo_resid": -0.00020612471867298746,
+      "permutation_p": 0.1329433528323584,
+      "n_null": 20000,
+      "conv_bat_x_toothedwhale_mean_resid": -0.00020612471867298746,
+      "control_fruitbat_vs_toothedwhales": -0.00021375411320423746,
+      "control_baleen_vs_echobats": -0.00019077652264332438,
+      "controls_ok": false
+    },
+    "pct_identity": {
+      "observed_cross_order_echo_resid": 0.009512059069454232,
+      "permutation_p": 0.99950002499875,
+      "n_null": 20000,
+      "conv_bat_x_toothedwhale_mean_resid": 0.009512059069454232,
+      "control_fruitbat_vs_toothedwhales": -0.003468637259116149,
+      "control_baleen_vs_echobats": 0.00409538251112111,
+      "controls_ok": false
+    }
+  },
+  "part3_convergent_sites": {
+    "n_strict": 0,
+    "n_parallel": 2,
+    "strict_columns_1based_ref": [],
+    "parallel_columns_1based_ref": [
+      {
+        "ref_pos": 576,
+        "aa": "K"
+      },
+      {
+        "ref_pos": 641,
+        "aa": "V"
+      }
+    ],
+    "per_site_esm_test": {
+      "observed_cross_order_echo_resid": -0.018932913762631665,
+      "permutation_p": 0.0008999550022498875,
+      "n_null": 20000,
+      "conv_bat_x_toothedwhale_mean_resid": -0.018932913762631665,
+      "control_fruitbat_vs_toothedwhales": 0.01710497834056353,
+      "control_baleen_vs_echobats": -0.018210828326446462,
+      "controls_ok": true
+    },
+    "per_site_identity_test": {
+      "observed_cross_order_echo_resid": -0.4622959826537814,
+      "permutation_p": 0.0029498525073746312,
+      "n_null": 20000,
+      "conv_bat_x_toothedwhale_mean_resid": -0.4622959826537814,
+      "control_fruitbat_vs_toothedwhales": 0.5377040173462186,
+      "control_baleen_vs_echobats": -0.46229598265378136,
+      "controls_ok": true
+    },
+    "circularity_caveat": "Sites were SELECTED using the echo/non-echo labels, so both per-site tests are partly circular: echo taxa share these residues by construction. The per-site identity test quantifies the selection-driven component; ESM beyond it is ESM's marginal contribution. A non-circular test needs convergent sites from an INDEPENDENT source (literature ASR / a held-out tree)."
+  }
+}
