@@ -1,0 +1,50 @@
+==============================================================================
+  DUAL ZFC/CAT VERIFICATION of horn convergence predictions
+==============================================================================
+Convergence category: 50 objects, 212 morphisms
+Species->Trait horns to verify: 229
+
+bucket                    AGREE  HOLLOW  ORPHAN  REJECT
+------------------------------------------------------------------------------
+FILLED (known)              107       0      26       0
+UNFILLED (predicted)          0      96       0       0
+
+Predictions (unfilled horns): 96
+  SUPPORTED (AGREE/HOLLOW, keep)  : 96
+  DISCARDED (ORPHAN/REJECT, drop) : 0
+
+Top supported convergence predictions (verified, by spine confidence):
+  [HOLLOW] A_sagrei_CUBA --has?--> toepad=medium    conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_porcatus_CUBA --has?--> body=medium      conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_occultus_PR --has?--> tail=short       conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_insolitus_HISP --has?--> toepad=small     conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_grahami_JAM --has?--> limb=medium      conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_angusticeps_CUBA --has?--> limb=very_short  conf~0.75 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_pulchellus_PR --has?--> perch_h=low      conf~0.67 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_olssoni_HISP --has?--> limb=short       conf~0.67 (zfc 0.00 / cat 0.71)
+  [HOLLOW] A_ricordii_HISP --has?--> limb=long        conf~0.50 (zfc 0.00 / cat 0.50)
+  [HOLLOW] A_garmani_JAM --has?--> limb=long        conf~0.50 (zfc 0.00 / cat 0.50)
+
+------------------------------------------------------------------------------
+FILTER TEST: niche-routed PREDICTIONS vs SPURIOUS candidates
+  predictions (niche selects trait): mean CAT conf 0.659   all kept
+  spurious   (niche does NOT select): mean CAT conf 0.139   deltas {'REJECT': 48, 'HOLLOW': 9}
+  spurious kept: 9/57  (discarded 48 as ORPHAN/REJECT)
+
+------------------------------------------------------------------------------
+HONEST READING (CAT on the taxon-taxon convergence geometry)
+  + FILTER WORKS: real predictions mean CAT ~0.66 vs spurious ~0.14, and
+    most spurious candidates are REJECTED. CAT now discriminates genuine
+    convergence (a cross-lineage, trait-similar donor carries the trait)
+    from spurious (only dissimilar donors do) -- the discrimination the
+    generic verifier on the hub-dense nerve could NOT provide.
+  + Known traits split AGREE vs ORPHAN: AGREE = the trait really is shared
+    with a different-lineage look-alike (convergent); ORPHAN = the species
+    has it but with NO cross-lineage convergent support (ancestral / within-
+    lineage / one-off). ZFC says true, CAT says 'not convergence' -- a
+    meaningful split, not an error.
+  - Residual: a few spurious survive (a chance cross-lineage look-alike) and
+    some real traits read ORPHAN. The signal is strong but not a hard gate.
+  => Pairing: horn SPINE confidence + leave-one-out AUROC (0.94) RANK the
+     predictions; the dual ZFC/CAT verdict now FILTERS them. Detect -> predict
+     -> validate -> verify, all wired.

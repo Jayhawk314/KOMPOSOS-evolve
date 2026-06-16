@@ -159,6 +159,65 @@ def load_mammal_chronogram() -> Node:
     return tree
 
 
+# Bird chronogram (Jetz et al. 2012, dated; VertLife Stage2 Hackett full trees).
+# The download is a 1000-tree pseudo-posterior archive; we stream just the FIRST
+# tree out of the zip (decompress until the first newline) and cache it, so we
+# never have to pull the whole ~190 MB file.
+BIRD_ZIP_URL = ("https://data.vertlife.org/birdtree/Stage2/"
+                "HackettStage2_0001_1000.zip")
+BIRD_NWK = CACHE / "bird_tree.nwk"
+
+
+def _stream_first_tree(url: str) -> str:
+    """Stream the first member of a zip and return its first line (one Newick tree).
+
+    Only enough compressed bytes to produce one tree are downloaded; the rest of
+    the archive is never fetched. The member is a plain `one tree per line` .tre."""
+    import struct
+    import zlib
+
+    r = requests.get(url, stream=True, timeout=300)
+    try:
+        it = r.iter_content(chunk_size=65536)
+        head = next(it)
+        if head[:4] != b"PK\x03\x04":
+            raise ValueError("not a zip local file header")
+        method = struct.unpack("<H", head[8:10])[0]
+        name_len = struct.unpack("<H", head[26:28])[0]
+        extra_len = struct.unpack("<H", head[28:30])[0]
+        if method != 8:
+            raise ValueError(f"unexpected zip compression method {method}")
+        data_off = 30 + name_len + extra_len
+        dec = zlib.decompressobj(-15)  # raw DEFLATE
+        out = dec.decompress(head[data_off:])
+        while b"\n" not in out:
+            try:
+                out += dec.decompress(next(it))
+            except StopIteration:
+                break
+        return out.split(b"\n", 1)[0].decode("latin1").strip()
+    finally:
+        r.close()
+
+
+def load_bird_chronogram() -> Node:
+    """First posterior sample of the Jetz et al. 2012 dated bird tree (Hackett
+    backbone, 9993 OTUs), streamed from the VertLife Stage2 archive and cached as a
+    single relabelled Newick.
+
+    Honest provenance: this is ONE pseudo-posterior tree, not the MCC consensus.
+    Divergence times are still molecular-clock + fossil estimates, independent of
+    the trait data, so using them cannot fit the convergence result (a different
+    posterior sample would shift node ages slightly, not the trait codings)."""
+    sys.setrecursionlimit(200000)
+    if BIRD_NWK.exists():
+        return parse_newick(BIRD_NWK.read_text())
+    CACHE.mkdir(parents=True, exist_ok=True)
+    newick = _stream_first_tree(BIRD_ZIP_URL)
+    BIRD_NWK.write_text(newick if newick.endswith(";") else newick + ";")
+    return parse_newick(newick)
+
+
 def prune_dated(full: Node, taxa: list[str]):
     """Prune a chronogram to `taxa` (space-separated). Returns
     (pruned_tree, brlen_dict, matched_underscore_labels) or (None, None, set())."""
@@ -180,6 +239,11 @@ def dated_subtree(taxa: list[str]):
 def dated_subtree_mammal(taxa: list[str]):
     """Mammal chronogram subtree for `taxa`."""
     return prune_dated(load_mammal_chronogram(), taxa)
+
+
+def dated_subtree_bird(taxa: list[str]):
+    """Bird chronogram subtree for `taxa`."""
+    return prune_dated(load_bird_chronogram(), taxa)
 
 
 if __name__ == "__main__":

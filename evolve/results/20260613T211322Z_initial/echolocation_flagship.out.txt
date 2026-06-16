@@ -1,0 +1,63 @@
+==============================================================================
+ECHOLOCATION  -- deep (stacked) convergence across 3 trait levels
+==============================================================================
+
+1) THE HEADLINE  bat vs dolphin, and the fruit-bat control
+
+  echo bat vs dolphin  (distant kin)
+     beha=1.00  morp=1.00  mole=1.00   ancestry=0.25   DEEP=+0.75
+
+  echo bat vs FRUIT bat (close kin, control)
+     beha=0.00  morp=0.00  mole=0.00   ancestry=0.60   DEEP=-0.60
+
+  dolphin vs porpoise  (close kin, both echo)
+     beha=1.00  morp=1.00  mole=1.00   ancestry=0.71   DEEP=+0.29
+
+2) ALL PAIRS RANKED BY DEEP CONVERGENCE
+   (min trait similarity across behavior+morph+molecular, minus ancestry)
+
+   pair                                       min_trait  ancestry    DEEP
+   --------------------------------------------------------------------
+   Rhinolophus_bat ~ Tursiops_dolphin              1.00      0.25    0.75  <==
+   Rhinolophus_bat ~ Phocoena_porpoise             1.00      0.25    0.75  <==
+   Myotis_bat ~ Tursiops_dolphin                   1.00      0.25    0.75  <==
+   Myotis_bat ~ Phocoena_porpoise                  1.00      0.25    0.75  <==
+   Bos_cow ~ Equus_horse                           1.00      0.29    0.71  <==
+   Rhinolophus_bat ~ Myotis_bat                    1.00      0.60    0.40
+   Tursiops_dolphin ~ Phocoena_porpoise            1.00      0.71    0.29
+   Tursiops_dolphin ~ Homo_human                   0.00      0.11   -0.11
+   Phocoena_porpoise ~ Homo_human                  0.00      0.11   -0.11
+   Bos_cow ~ Homo_human                            0.00      0.12   -0.12
+   Rhinolophus_bat ~ Homo_human                    0.00      0.14   -0.14
+   Myotis_bat ~ Homo_human                         0.00      0.14   -0.14
+
+3) ENVIRONMENT AS DRIVER: predict the convergent solution
+   Taxa facing the same selective problem should share the trait,
+   regardless of ancestry. Group by environment fingerprint:
+
+   problem 'detect_moving_prey_without_light':
+        - Rhinolophus_bat
+        - Myotis_bat
+        - Tursiops_dolphin
+        - Phocoena_porpoise
+     -> behavior agreement within group: 100%
+
+   problem 'nocturnal_frugivory':
+        - Pteropus_fruitbat
+     -> behavior agreement within group: nan%
+
+   problem 'diurnal_foraging':
+        - Bos_cow
+        - Equus_horse
+        - Homo_human
+     -> behavior agreement within group: 33%
+
+------------------------------------------------------------------------------
+VERDICT
+  Top deep-convergence pair: Rhinolophus_bat ~ Tursiops_dolphin  (DEEP=+0.75)
+  This pair spans different mammalian orders: similar phenotype at
+  ALL THREE levels, with low shared ancestry == deep convergence.
+
+  Control (echo bat ~ fruit bat) DEEP = -0.60  [ancestry=0.60]
+  -> close relatives, but NOT convergent: the engine is detecting the
+     convergent SOLUTION, not mere relatedness.

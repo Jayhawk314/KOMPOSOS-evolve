@@ -1,0 +1,22 @@
+Loading dated mammal chronogram (Upham 2019, cached) ...
+PanTHERIA body+temp: 3217; on dated chronogram: 2498; used: 600
+median body 120 g, median temp 21.5 C; dated tips used: 600
+
+================================================================================
+  BERGMANN'S RULE on the DATED mammal tree  (large body <-> cold climate)
+================================================================================
+  large&cold=140  large&warm=160  small&cold=160  small&warm=140
+  observed phi(large,cold) = -0.067
+  neutral-Mk null phi       = -0.003  (q_hat=1.292)
+  p(assoc beyond phylogeny) = 0.777
+  => Bergmann NOT supported (p >= 0.05)
+
+  NEGATIVE CONTROL (permuted env): phi=-0.013 p=0.626  (expect non-sig)
+  POSITIVE CONTROL (env~trait+noise): phi=+0.617 p=0.001  (expect sig)
+
+HONEST NOTES:
+  - Tree + divergence times: dated Upham 2019 mammal phylogeny, independent of
+    the trait data. Null = trait under neutral Mk on the DATED branches.
+  - Earlier Grafen/Open-Tree run also found Bergmann NOT supported; the dated
+    chronogram tests robustness of that to real branch lengths.
+  - Pre-specified hypothesis + median splits; controls bracket the test.

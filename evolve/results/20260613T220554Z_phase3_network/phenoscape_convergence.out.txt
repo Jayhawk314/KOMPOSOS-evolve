@@ -1,0 +1,51 @@
+Building model from Phenoscape (cached)...
+117 taxa, lenses ['morphology', 'ancestry']
+
+============================================================================
+VIEW 1  shared DERIVED loss across orders  (the convergence signal)
+============================================================================
+
+  'pelvic fin: pelvic fin absent'  (11 taxa, 6 order(s))  <== CONVERGENT (multiple orders)
+       Adontosternarchus sachsi                   [Gymnotiformes]
+       Adontosternarchus sp. (Fink and Fink 198   [Gymnotiformes]
+       Aetapcus                                   [Scorpaeniformes]
+       Alabes brevis                              [Gobiesociformes]
+       Alabes hoesei                              [Gobiesociformes]
+       Alabes parvula                             [Gobiesociformes]
+
+  'pectoral fin: pectoral fin absent'  (6 taxa, 3 order(s))  <== CONVERGENT (multiple orders)
+       Alabes brevis                              [Gobiesociformes]
+       Alabes dorsalis                            [Gobiesociformes]
+       Alabes hoesei                              [Gobiesociformes]
+       Alabes parvula                             [Gobiesociformes]
+       Anaspida                                   [Vertebrata]
+       Achiropsettidae                            [Pleuronectiformes]
+
+  'caudal fin: diphycercal tail absent'  (4 taxa, 2 order(s))  <== CONVERGENT (multiple orders)
+       Acanthodidae                               [Acanthodiformes]
+       Acanthodii                                 [Gnathostomata]
+       Actinistia                                 [Gnathostomata]
+       Actinopterygii                             [Gnathostomata]
+
+  'dorsal fin: dorsal fin absent'  (3 taxa, 2 order(s))  <== CONVERGENT (multiple orders)
+       Adontosternarchus sachsi                   [Gymnotiformes]
+       Adontosternarchus sp. (Fink and Fink 198   [Gymnotiformes]
+       Acanthostega gunnari                       [Eotetrapodiformes]
+
+============================================================================
+VIEW 2  naive convergence ranking  trait_sim - ancestry  (top cross-order)
+============================================================================
+  +1.00  Acanthothoraciformes             ~ Amsichthys knighti              
+  +0.93  Acanthothoraciformes             ~ Anabantidae                     
+  +0.71  Acanthodidae                     ~ Actinopterygii                  
+  +0.67  Acanthodidae                     ~ Actinistia                      
+  +0.60  Acanthothoraciformes             ~ Ammodytidae                     
+  +0.60  Acanthothoraciformes             ~ Acanthuridae                    
+  +0.59  Albula                           ~ Alosa mediocris                 
+  +0.59  Abramites sp. (Fink and Fink 1   ~ Albula sp. (Fink and Fink 1981  
+  +0.50  Alabes parvula                   ~ Anaspida                        
+  +0.50  Alabes hoesei                    ~ Anaspida                        
+
+  CAVEAT: this is inflated by PLESIOMORPHY -- two distant fish sharing
+  'fin present' (an ancestral trait) score as 'convergent' here. Without
+  ancestral-state polarity, View 1 (shared LOSS) is the trustworthy signal.

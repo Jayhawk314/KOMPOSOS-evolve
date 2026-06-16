@@ -1,0 +1,56 @@
+============================================================================
+  HORNS over the CONVERGENCE category  (nerve, dim <= 2)
+============================================================================
+0-simplices (objects)   : 50
+1-simplices (morphisms) : 212
+Inner 2-horns Species->Niche->Trait : 229
+  distinct Species->Trait pairs spanned : 229
+  FILLED (species really has the trait) : 133
+  UNFILLED (predicted-but-absent)       : 96
+
+[1] FILLED inner horn  (species HAS the trait its niche selects)
+    A_porcatus_CUBA --has--> large      via trunk-crown  (composite 1.00)
+    A_porcatus_CUBA --has--> high       via trunk-crown  (composite 1.00)
+    A_porcatus_CUBA --has--> medium     via trunk-crown  (composite 1.00)
+
+[2] UNFILLED inner horns -> FILLING = CONVERGENCE PREDICTION (top 12)
+    niche selects the trait, but this species lacks it (gap / prediction):
+    1. A_porcatus_CUBA --has?--> body=medium        conf~0.75 (niche trunk-crown)
+    2. A_grahami_JAM --has?--> limb=medium        conf~0.75 (niche trunk-crown)
+    3. A_sagrei_CUBA --has?--> toepad=medium      conf~0.75 (niche trunk-ground)
+    4. A_angusticeps_CUBA --has?--> limb=very_short    conf~0.75 (niche twig)
+    5. A_insolitus_HISP --has?--> toepad=small       conf~0.75 (niche twig)
+    6. A_occultus_PR --has?--> tail=short         conf~0.75 (niche twig)
+    7. A_olssoni_HISP --has?--> limb=short         conf~0.67 (niche grass-bush)
+    8. A_pulchellus_PR --has?--> perch_h=low        conf~0.67 (niche grass-bush)
+    9. A_equestris_CUBA --has?--> limb=medium        conf~0.50 (niche crown-giant)
+   10. A_equestris_CUBA --has?--> perch_h=high       conf~0.50 (niche crown-giant)
+   11. A_ricordii_HISP --has?--> limb=long          conf~0.50 (niche crown-giant)
+   12. A_garmani_JAM --has?--> limb=long          conf~0.50 (niche crown-giant)
+
+[3] OUTER horns / Kan condition
+    Invertible edge pairs (s<->t): 0
+    Evolution is directional (Dollo): the nerve fills INNER horns
+    (quasi-category) but not outer ones -> NOT a Kan complex. As it should be.
+
+[4] COHERENCE check (one trait reached via niches that DISAGREE)
+    No contradictory fillers (each trait routed through one niche).
+
+============================================================================
+  RETRODICTION  (leave-one-(species,trait)-out; recover deleted truth)
+============================================================================
+19 species x 22 trait-states
+Held-out positives (folds): 114   negatives: 304
+Avg niches per held positive: 0.91 (=1 -> corroboration degenerate, expected)
+
+Horn scorers:
+  horn-max         AUROC 0.9391  AUPRC 0.9415  Hits@10 0.088  MRR 0.0460  (scored 104/114)
+  horn-noisy_or    AUROC 0.9391  AUPRC 0.9415  Hits@10 0.088  MRR 0.0460  (scored 104/114)
+
+  baseline (global trait frequency) AUROC : 0.6491
+  horn-max beats frequency baseline by    : +0.2900
+
+Reading: high horn-max AUROC means a held-out trait is recovered from its
+niche-mates ON OTHER ISLANDS -- convergent inference, not memorization.
+noisy_or == max here because each species sits in ONE niche (one intermediate);
+the pharma finding that corroboration needs MANY intermediates transfers exactly.

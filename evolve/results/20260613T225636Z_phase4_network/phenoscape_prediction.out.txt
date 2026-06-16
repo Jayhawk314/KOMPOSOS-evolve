@@ -1,0 +1,31 @@
+Building Phenoscape model from cached fin characters...
+======================================================================================
+PHENOSCAPE MORPHOLOGY-STATE PREDICTION
+======================================================================================
+taxa: 117
+states: 106
+all-state positives: 415  negatives: 6102
+absence positives  : 26  negatives: 336
+
+[1] All observed fin states
+  frequency                    AUROC 0.7661
+  nearest_profile              AUROC 0.8867
+  profile_minus_ancestry       AUROC 0.8110
+  cross_order_profile          AUROC 0.5949
+  cross_order_minus_ancestry   AUROC 0.7499
+
+[2] Absence/loss states only
+  frequency                    AUROC 0.7023
+  nearest_profile              AUROC 0.8526
+  profile_minus_ancestry       AUROC 0.7912
+  cross_order_profile          AUROC 0.7559
+  cross_order_minus_ancestry   AUROC 0.7909
+
+HONEST READING
+  Best all-state predictor    : nearest_profile (0.8867)
+  Best absence-state predictor: nearest_profile (0.8526)
+  This is relation completion over real Phenoscape morphology, not a
+  niche-mediated horn test. It is weaker than Anolis because explicit
+  environment/niche intermediates are absent.
+  A useful result here is any improvement over frequency; a negative
+  result would mean morphology context alone is not enough.

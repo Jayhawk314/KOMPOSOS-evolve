@@ -1,0 +1,20 @@
+Fitch parsimony self-test (hand-checkable):
+
+  ((A,B),(C,D)) A,C=absent B,D=present
+    steps=2 (expect 2)  CI=0.50 (expect 0.50)
+    root=absent  origins={'absent': 1, 'present': 2}  convergent=True
+
+  (((A,B),C),D) A,B=absent C,D=present
+    steps=1 (expect 1)  CI=1.00 (expect 1.00)
+    root=present  origins={'absent': 1, 'present': 1}  convergent=False
+
+  ott-id tips, absent at 1,3 -> steps=2 (expect 2), convergent=True
+
+  homology: A,D absent in separate clades -> independent=[('A', 'D')] shared=[]
+  homology: A,B absent in one clade   -> independent=[] shared=[('A', 'B')]
+
+  dollo: present B,C,E; absent A(basal),D(nested) -> inapplicable=['A']
+
+  randomization: clustered absent(A,B,C) obs_steps=1 null_mean=2.67 p_fewer=0.008
+
+All self-tests passed. Parameter-free: nothing here can be tuned.

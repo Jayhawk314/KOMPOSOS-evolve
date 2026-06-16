@@ -1,0 +1,28 @@
+==============================================================================
+COMPARISON BASELINES FOR THE THESIS CLAIMS
+==============================================================================
+
+[1] Anolis detection: known convergent pair label
+  pairs: 171  positives: 27
+  morph-only AUROC              : 0.9879
+  ancestry-only AUROC           : 0.3750
+  not-same-island AUROC         : 0.6250
+  morph-minus-ancestry AUROC    : 0.9942
+  mean convergence, positives   : 0.5397
+  mean convergence, negatives   : -0.1365
+
+[2] Horn retrodiction: nearest-neighbor baseline
+  positives: 114  negatives: 304
+  nearest-neighbor AUROC        : 0.9134
+  trait-frequency AUROC         : 0.6491
+  horn-max AUROC                : 0.9391
+  horn gain vs nearest-neighbor : +0.0257
+  horn gain vs trait-frequency  : +0.2900
+
+HONEST READING
+  - The Anolis detection baseline asks whether subtracting ancestry improves
+    a simple morphometric similarity score for known cross-island ecomorphs.
+  - The nearest-neighbor retrodiction baseline is intentionally strong: it
+    uses held-out trait profiles, but no explicit species->niche->trait horn.
+  - If the horn score wins, the niche-mediated relational path is adding
+    information beyond raw profile proximity.

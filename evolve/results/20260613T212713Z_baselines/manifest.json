@@ -1,0 +1,156 @@
+{
+  "run_name": "20260613T212713Z_baselines",
+  "created_utc": "2026-06-13T21:27:13.723284+00:00",
+  "root": "C:\\Users\\JAMES\\github\\KOMPOSOS-evolve",
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "scripts": [
+    {
+      "script": "evolve/polarity.py",
+      "started_utc": "2026-06-13T21:27:13.770982+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 0.134,
+      "stdout_file": "polarity.out.txt",
+      "stderr_file": "polarity.err.txt"
+    },
+    {
+      "script": "evolve/mk.py",
+      "started_utc": "2026-06-13T21:27:13.914218+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 0.121,
+      "stdout_file": "mk.out.txt",
+      "stderr_file": "mk.err.txt"
+    },
+    {
+      "script": "evolve/anolis_validation.py",
+      "started_utc": "2026-06-13T21:27:14.025882+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 1.15,
+      "stdout_file": "anolis_validation.out.txt",
+      "stderr_file": "anolis_validation.err.txt"
+    },
+    {
+      "script": "evolve/echolocation_flagship.py",
+      "started_utc": "2026-06-13T21:27:15.185285+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 0.277,
+      "stdout_file": "echolocation_flagship.out.txt",
+      "stderr_file": "echolocation_flagship.err.txt"
+    },
+    {
+      "script": "evolve/geometry_test.py",
+      "started_utc": "2026-06-13T21:27:15.465346+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 6.361,
+      "stdout_file": "geometry_test.out.txt",
+      "stderr_file": "geometry_test.err.txt"
+    },
+    {
+      "script": "evolve/horns_convergence.py",
+      "started_utc": "2026-06-13T21:27:21.828500+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 0.968,
+      "stdout_file": "horns_convergence.out.txt",
+      "stderr_file": "horns_convergence.err.txt"
+    },
+    {
+      "script": "evolve/horns_verified.py",
+      "started_utc": "2026-06-13T21:27:22.792696+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 4.37,
+      "stdout_file": "horns_verified.out.txt",
+      "stderr_file": "horns_verified.err.txt"
+    },
+    {
+      "script": "evolve/comparison_baselines.py",
+      "started_utc": "2026-06-13T21:27:27.169383+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 1.11,
+      "stdout_file": "comparison_baselines.out.txt",
+      "stderr_file": "comparison_baselines.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_convergence.py",
+      "started_utc": "2026-06-13T21:27:28.284947+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 4.106,
+      "stdout_file": "phenoscape_convergence.out.txt",
+      "stderr_file": "phenoscape_convergence.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_polarity.py",
+      "started_utc": "2026-06-13T21:27:32.437906+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 2.849,
+      "stdout_file": "phenoscape_polarity.out.txt",
+      "stderr_file": "phenoscape_polarity.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_homology.py",
+      "started_utc": "2026-06-13T21:27:35.288202+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 1.153,
+      "stdout_file": "phenoscape_homology.out.txt",
+      "stderr_file": "phenoscape_homology.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_inapplicability.py",
+      "started_utc": "2026-06-13T21:27:36.444829+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 2.797,
+      "stdout_file": "phenoscape_inapplicability.out.txt",
+      "stderr_file": "phenoscape_inapplicability.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_significance.py",
+      "started_utc": "2026-06-13T21:27:39.243777+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 3.58,
+      "stdout_file": "phenoscape_significance.out.txt",
+      "stderr_file": "phenoscape_significance.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_excess.py",
+      "started_utc": "2026-06-13T21:27:42.867539+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 4.143,
+      "stdout_file": "phenoscape_excess.out.txt",
+      "stderr_file": "phenoscape_excess.err.txt"
+    },
+    {
+      "script": "evolve/phenoscape_excess_dated.py",
+      "started_utc": "2026-06-13T21:27:47.001507+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 1.346,
+      "stdout_file": "phenoscape_excess_dated.out.txt",
+      "stderr_file": "phenoscape_excess_dated.err.txt"
+    },
+    {
+      "script": "evolve/trait_environment.py",
+      "started_utc": "2026-06-13T21:27:48.351345+00:00",
+      "timeout_seconds": 240,
+      "returncode": 0,
+      "duration_seconds": 3.419,
+      "stdout_file": "trait_environment.out.txt",
+      "stderr_file": "trait_environment.err.txt"
+    }
+  ],
+  "completed_utc": "2026-06-13T21:27:51.779820+00:00",
+  "passed": 16,
+  "failed": 0
+}

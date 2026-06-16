@@ -1,0 +1,2 @@
+clustered trait: {'observed_steps': 1, 'q_hat': 0.5118, 'null_mean': 1.28, 'null_sd': 0.81, 'p_excess': 0.838, 'p_deficit': 0.614, 'n_sim': 499}
+  -> p_excess=0.838 (expect NOT significant: no excess homoplasy)

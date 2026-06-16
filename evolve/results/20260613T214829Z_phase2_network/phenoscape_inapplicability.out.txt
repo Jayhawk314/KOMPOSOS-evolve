@@ -1,0 +1,27 @@
+================================================================================
+  DOLLO INAPPLICABILITY on real fish characters  ('lost' vs 'never had it')
+================================================================================
+character      absent present   loss inapplic   examples
+--------------------------------------------------------------------------------
+pelvic fin         34      51     34        0   
+pectoral fin       12      30     12        0   
+dorsal fin          3      12      3        0   
+caudal fin          4      25      4        0   
+adipose fin        33     102     30        3   Amia calva, Anaethalion angustissimus, Anaethalion angustus
+barbel             22      16      7       15   Abramites, Acanthicus hystrix, Acrocheilus alutaceus
+
+================================================================================
+  EFFECT ON CONVERGENCE  (barbel -- a nested-origin character)
+================================================================================
+  'absent' carriers              : 20 -> 5 (removed 15 that NEVER had barbels)
+  INDEPENDENT (convergent) pairs : 7 -> 7
+  false convergence pairs removed: 0
+  recoded inapplicable: ['Abramites', 'Acanthicus hystrix', 'Acrocheilus alutaceus', 'Adontosternarchus', 'Aethotaxis mitopteryx', 'Agosia chrysogaster', 'Albula', 'Algansea aphanea'] ...
+
+HONEST NOTES:
+  - Fins: 0 inapplicable -- correct, every sampled fish descends from a
+    finned ancestor, so fin-absences are nested LOSSES, not 'never had it'.
+  - Barbel/adipose fire because their origins are NESTED (basal taxa lack
+    them). BUT both are MULTIPLY-gained -> they violate Dollo's single-origin
+    assumption, so the inapplicable count is a conservative lower bound. Flagged.
+  - Nothing tuned: characters of both kinds were run; the data decided.

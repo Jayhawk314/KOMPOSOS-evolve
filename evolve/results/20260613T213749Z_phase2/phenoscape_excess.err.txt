@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', NewConnectionError("HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.opentreeoflife.org', port=443): Max retries exceeded with url: /v3/tnrs/match_names (Caused by ProxyError('Unable to connect to proxy', NewConnectionError("HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\JAMES\github\KOMPOSOS-evolve\evolve\phenoscape_excess.py", line 88, in <module>
+    main()
+  File "C:\Users\JAMES\github\KOMPOSOS-evolve\evolve\phenoscape_excess.py", line 56, in main
+    b = build_character(ch)
+  File "C:\Users\JAMES\github\KOMPOSOS-evolve\evolve\phenoscape_inapplicability.py", line 52, in build_character
+    n2o = reconcile(sorted(st))
+  File "C:\Users\JAMES\github\KOMPOSOS-evolve\evolve\ingest.py", line 45, in reconcile
+    r = requests.post(f"{OTT}/tnrs/match_names", json={"names": todo}, timeout=30)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\JAMES\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 671, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.opentreeoflife.org', port=443): Max retries exceeded with url: /v3/tnrs/match_names (Caused by ProxyError('Unable to connect to proxy', NewConnectionError("HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it")))

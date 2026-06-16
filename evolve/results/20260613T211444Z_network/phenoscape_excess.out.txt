@@ -1,0 +1,23 @@
+==========================================================================================
+  CONVERGENCE -- COG-STYLE TIERED VERDICT  (Fitch origins | PTP | neutral-Mk)
+==========================================================================================
+character     orig PTP p_few  q_hat  Mk obs/null Mk p_exc  tier  verdict
+------------------------------------------------------------------------------------------
+pelvic fin       4     0.001 1.4997       8/8.16    0.616   T2  structured homoplasy (real, not excess beyond drift)
+pectoral fin     2     0.006 0.3286       2/2.22    0.708   T2  structured homoplasy (real, not excess beyond drift)
+dorsal fin       1     0.271  0.192       1/0.96    0.656   T0  single origin -- not convergence
+caudal fin       2     0.487 0.2854       2/1.95    0.608   T1  homoplasy present but random/labile
+adipose fin      6     0.001 0.8285       6/7.11    0.782   T2  structured homoplasy (real, not excess beyond drift)
+barbel           3     0.071 2.2129        3/7.4    0.998   T1  homoplasy present but random/labile
+
+HONEST READING:
+  - Tier 2 vs Tier 3 often DISAGREE: a trait can be phylogenetically clustered
+    (few origins, PTP-significant) yet show NO excess over neutral drift. Both
+    are true and reported; convergence is a tiered claim, not one number.
+  - The ML rate is fit under the no-convergence null, so Tier 3 is conservative.
+  - LIMIT: Grafen branch lengths (topology-derived). An empirical TimeTree/
+    DateLife chronogram is the gold-standard refinement -- stated, not faked.
+
+  TOOLS DISCERNMENT: ML rate = statistical (no categorical tool does this;
+  using OPTIMUS/operadum for it would be decoration). COG-style tiering here
+  = the genuine categorical role: adjudicating agreement across independent tests.

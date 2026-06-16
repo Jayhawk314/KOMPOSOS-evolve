@@ -1,0 +1,718 @@
+{
+  "taxa": {
+    "Rhinolophus_bat": {
+      "acc": "XP_032944790.1",
+      "organism": "Rhinolophus ferrumequinum",
+      "group": "echo"
+    },
+    "Myotis_bat": {
+      "acc": "XP_006107760.1",
+      "organism": "Myotis lucifugus",
+      "group": "echo"
+    },
+    "Eptesicus_bat": {
+      "acc": "XP_008148033.2",
+      "organism": "Eptesicus fuscus",
+      "group": "echo"
+    },
+    "Tursiops_dolphin": {
+      "acc": "sp|D7PC76.1|S26A5_TURTR",
+      "organism": "Tursiops truncatus",
+      "group": "echo"
+    },
+    "Phocoena_porpoise": {
+      "acc": "XP_065740196.1",
+      "organism": "Phocoena phocoena",
+      "group": "echo"
+    },
+    "Physeter_whale": {
+      "acc": "XP_028345955.1",
+      "organism": "Physeter catodon",
+      "group": "echo"
+    },
+    "Orcinus_orca": {
+      "acc": "XP_033295445.1",
+      "organism": "Orcinus orca",
+      "group": "echo"
+    },
+    "Pteropus_fruitbat": {
+      "acc": "XP_011363497.1",
+      "organism": "Pteropus vampyrus",
+      "group": "control"
+    },
+    "Balaenoptera_baleen": {
+      "acc": "XP_007177376.2",
+      "organism": "Balaenoptera acutorostrata",
+      "group": "control"
+    },
+    "Bos_cow": {
+      "acc": "NP_001179807.1",
+      "organism": "Bos taurus",
+      "group": "out"
+    },
+    "Equus_horse": {
+      "acc": "XP_005609105.2",
+      "organism": "Equus caballus",
+      "group": "out"
+    },
+    "Loxodonta_elephant": {
+      "acc": "XP_064145956.1",
+      "organism": "Loxodonta africana",
+      "group": "out"
+    },
+    "Mus_mouse": {
+      "acc": "NP_109652.3",
+      "organism": "Mus musculus",
+      "group": "out"
+    },
+    "Homo_human": {
+      "acc": "AAP43685.1",
+      "organism": "Homo sapiens",
+      "group": "out"
+    }
+  },
+  "n_seqs": 14,
+  "headline_mean_resid_bat_x_toothedwhale": -0.00020612471867298746,
+  "permutation_p": 0.130373925214957,
+  "controls_ok": false,
+  "verdict_molecular_convergence": false,
+  "ranked_residuals": [
+    {
+      "pair": [
+        "Bos_cow",
+        "Equus_horse"
+      ],
+      "resid": -0.0004225512793993955
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Equus_horse"
+      ],
+      "resid": -0.00041411512661671305
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Equus_horse"
+      ],
+      "resid": -0.00037844384226560644
+    },
+    {
+      "pair": [
+        "Equus_horse",
+        "Homo_human"
+      ],
+      "resid": -0.00035546285783175807
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Phocoena_porpoise"
+      ],
+      "resid": -0.00034992092419361734
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Bos_cow"
+      ],
+      "resid": -0.00033853643704151773
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Mus_mouse"
+      ],
+      "resid": -0.00033650858079318385
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Equus_horse"
+      ],
+      "resid": -0.00033576691660642676
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Equus_horse"
+      ],
+      "resid": -0.00033517087015867285
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Equus_horse"
+      ],
+      "resid": -0.0003259917548632627
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Equus_horse"
+      ],
+      "resid": -0.00032452934551930094
+    },
+    {
+      "pair": [
+        "Balaenoptera_baleen",
+        "Equus_horse"
+      ],
+      "resid": -0.0003131171515917783
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Tursiops_dolphin"
+      ],
+      "resid": -0.00030396574307179117
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -0.0002829773686941104
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -0.00028250807095265055
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Bos_cow"
+      ],
+      "resid": -0.00027666681576466227
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Orcinus_orca"
+      ],
+      "resid": -0.0002751170950005021
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Homo_human"
+      ],
+      "resid": -0.00026838047181491236
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Bos_cow"
+      ],
+      "resid": -0.000263196166045424
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Physeter_whale"
+      ],
+      "resid": -0.0002597987012932267
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Homo_human"
+      ],
+      "resid": -0.0002561615196359573
+    },
+    {
+      "pair": [
+        "Bos_cow",
+        "Mus_mouse"
+      ],
+      "resid": -0.000254134961713594
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -0.000252824957854506
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -0.00023100965786671305
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Balaenoptera_baleen"
+      ],
+      "resid": -0.0002217709379265275
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Equus_horse"
+      ],
+      "resid": -0.00022063844967579508
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Tursiops_dolphin"
+      ],
+      "resid": -0.0002122937994072404
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Tursiops_dolphin"
+      ],
+      "resid": -0.0002103268461296525
+    },
+    {
+      "pair": [
+        "Equus_horse",
+        "Mus_mouse"
+      ],
+      "resid": -0.00020031196748141627
+    },
+    {
+      "pair": [
+        "Bos_cow",
+        "Homo_human"
+      ],
+      "resid": -0.00019405347978000025
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Balaenoptera_baleen"
+      ],
+      "resid": -0.0001911937551567521
+    },
+    {
+      "pair": [
+        "Balaenoptera_baleen",
+        "Bos_cow"
+      ],
+      "resid": -0.00017521858968986144
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Orcinus_orca"
+      ],
+      "resid": -0.0001715242223808732
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Phocoena_porpoise"
+      ],
+      "resid": -0.00016949766445850992
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Orcinus_orca"
+      ],
+      "resid": -0.00016687506008839273
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Balaenoptera_baleen"
+      ],
+      "resid": -0.00016687506008839273
+    },
+    {
+      "pair": [
+        "Balaenoptera_baleen",
+        "Mus_mouse"
+      ],
+      "resid": -0.0001631782737863479
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Phocoena_porpoise"
+      ],
+      "resid": -0.00016264313030934
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Balaenoptera_baleen"
+      ],
+      "resid": -0.00015936487484669352
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Mus_mouse"
+      ],
+      "resid": -0.00015805227433566432
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Homo_human"
+      ],
+      "resid": -0.00014589292680148463
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Bos_cow"
+      ],
+      "resid": -0.00013826483059620523
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Homo_human"
+      ],
+      "resid": -0.00011370641862277369
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Physeter_whale"
+      ],
+      "resid": -0.0001118003683159318
+    },
+    {
+      "pair": [
+        "Mus_mouse",
+        "Homo_human"
+      ],
+      "resid": -0.00011056199799911262
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Homo_human"
+      ],
+      "resid": -0.00010881883775119166
+    },
+    {
+      "pair": [
+        "Balaenoptera_baleen",
+        "Loxodonta_elephant"
+      ],
+      "resid": -0.00010021532137808437
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Homo_human"
+      ],
+      "resid": -9.600383912448268e-05
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Bos_cow"
+      ],
+      "resid": -9.5348365690838e-05
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Homo_human"
+      ],
+      "resid": -9.290439759616236e-05
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -8.867376614308023e-05
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Equus_horse"
+      ],
+      "resid": -8.462065029835367e-05
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Physeter_whale"
+      ],
+      "resid": -7.973306942677164e-05
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Mus_mouse"
+      ],
+      "resid": -6.190998231295924e-05
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Myotis_bat"
+      ],
+      "resid": -5.957916007594635e-05
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Pteropus_fruitbat"
+      ],
+      "resid": -4.7121789317889707e-05
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Homo_human"
+      ],
+      "resid": -4.516107713107447e-05
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Mus_mouse"
+      ],
+      "resid": -3.931982194308619e-05
+    },
+    {
+      "pair": [
+        "Balaenoptera_baleen",
+        "Homo_human"
+      ],
+      "resid": -1.5954801191133067e-05
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Mus_mouse"
+      ],
+      "resid": -1.333219682101588e-05
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Bos_cow"
+      ],
+      "resid": -2.1267012621270617e-06
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Mus_mouse"
+      ],
+      "resid": -9.344307077346296e-07
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Eptesicus_bat"
+      ],
+      "resid": 2.201399520209091e-05
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Mus_mouse"
+      ],
+      "resid": 2.7318170915800527e-05
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Mus_mouse"
+      ],
+      "resid": 8.501546705837865e-05
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0001072684470850504
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Bos_cow"
+      ],
+      "resid": 0.00011338710031257997
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Eptesicus_bat"
+      ],
+      "resid": 0.00013067886604710053
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Bos_cow"
+      ],
+      "resid": 0.00014086484155403505
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Balaenoptera_baleen"
+      ],
+      "resid": 0.0001712600169639022
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Physeter_whale"
+      ],
+      "resid": 0.00017969168026583487
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Orcinus_orca"
+      ],
+      "resid": 0.00017978618325068834
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Orcinus_orca"
+      ],
+      "resid": 0.0002153123024935689
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Pteropus_fruitbat"
+      ],
+      "resid": 0.00021626097224409162
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Phocoena_porpoise"
+      ],
+      "resid": 0.00022216683664273883
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Balaenoptera_baleen"
+      ],
+      "resid": 0.00024159349779886313
+    },
+    {
+      "pair": [
+        "Physeter_whale",
+        "Orcinus_orca"
+      ],
+      "resid": 0.0002571777184738427
+    },
+    {
+      "pair": [
+        "Bos_cow",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.00026152526776376133
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Physeter_whale"
+      ],
+      "resid": 0.0002702907403244286
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Balaenoptera_baleen"
+      ],
+      "resid": 0.0003423849521140487
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Balaenoptera_baleen"
+      ],
+      "resid": 0.0003453055797080428
+    },
+    {
+      "pair": [
+        "Loxodonta_elephant",
+        "Mus_mouse"
+      ],
+      "resid": 0.0003970662299829996
+    },
+    {
+      "pair": [
+        "Phocoena_porpoise",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0005807081405359781
+    },
+    {
+      "pair": [
+        "Equus_horse",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0006245175544458902
+    },
+    {
+      "pair": [
+        "Rhinolophus_bat",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0006736317817408121
+    },
+    {
+      "pair": [
+        "Orcinus_orca",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0008027950469690836
+    },
+    {
+      "pair": [
+        "Tursiops_dolphin",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0008342662994104898
+    },
+    {
+      "pair": [
+        "Myotis_bat",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.0010806719009119547
+    },
+    {
+      "pair": [
+        "Eptesicus_bat",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.001084367388888029
+    },
+    {
+      "pair": [
+        "Pteropus_fruitbat",
+        "Loxodonta_elephant"
+      ],
+      "resid": 0.001106361502810148
+    },
+    {
+      "pair": [
+        "Loxodonta_elephant",
+        "Homo_human"
+      ],
+      "resid": 0.0013189712707239664
+    }
+  ]
+}

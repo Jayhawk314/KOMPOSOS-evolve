@@ -1,0 +1,44 @@
+Taxon graph: 19 taxa, 35 similarity edges (threshold 0.3)
+
+======================================================================
+SPECTRAL  — does the Laplacian embedding cluster by ecomorph?
+======================================================================
+  ran OK: 19 eigenvalues, Fiedler value (algebraic connectivity) = -0.0000
+  mean embedding distance:
+     same ecomorph      : 0.121
+     diff ecomorph      : 0.707
+     same island/diff eco: 0.706
+  -> ecomorph-mates are spectrally CLOSER than non-mates : PASS
+
+======================================================================
+RICCI  — are the most negatively-curved edges convergent bridges?
+======================================================================
+  Most negatively curved edges (candidate convergent bridges):
+    kappa=-1.375  A_porcatus_CUBA      ~ A_garmani_JAM        cross-ecomorph
+    kappa=-1.375  A_chlorocyanus_HISP  ~ A_ricordii_HISP      cross-ecomorph
+    kappa=-1.375  A_gundlachi_PR       ~ A_cuvieri_PR         cross-ecomorph
+    kappa=-1.357  A_equestris_CUBA     ~ A_ricordii_HISP      CONVERGENT bridge (same ecomorph, diff island)
+    kappa=-1.232  A_equestris_CUBA     ~ A_garmani_JAM        CONVERGENT bridge (same ecomorph, diff island)
+    kappa=-1.000  A_porcatus_CUBA      ~ A_ricordii_HISP      cross-ecomorph
+    kappa=-0.875  A_equestris_CUBA     ~ A_cybotes_HISP       cross-ecomorph
+    kappa=-0.875  A_equestris_CUBA     ~ A_lineatopus_JAM     cross-ecomorph
+  -> 2/8 most-negative edges are convergent bridges
+
+Lineage-community graph: 68 edges (island ties + cross-island convergence bridges)
+
+======================================================================
+RICCI v2 — lineages as communities; convergent = cross-island bridge
+======================================================================
+  Most negatively curved edges:
+    kappa=-0.982  A_equestris_CUBA     ~ A_garmani_JAM        CONVERGENT (cross-island, same ecomorph)
+    kappa=-0.969  A_equestris_CUBA     ~ A_ricordii_HISP      CONVERGENT (cross-island, same ecomorph)
+    kappa=-0.964  A_garmani_JAM        ~ A_cuvieri_PR         CONVERGENT (cross-island, same ecomorph)
+    kappa=-0.944  A_porcatus_CUBA      ~ A_grahami_JAM        CONVERGENT (cross-island, same ecomorph)
+    kappa=-0.942  A_ricordii_HISP      ~ A_cuvieri_PR         CONVERGENT (cross-island, same ecomorph)
+    kappa=-0.925  A_porcatus_CUBA      ~ A_garmani_JAM        cross-island, diff ecomorph
+    kappa=-0.892  A_porcatus_CUBA      ~ A_ricordii_HISP      cross-island, diff ecomorph
+    kappa=-0.875  A_olssoni_HISP       ~ A_pulchellus_PR      CONVERGENT (cross-island, same ecomorph)
+
+  mean curvature  cross-island bridges : -0.537
+  mean curvature  within-island ties   : +0.296
+  -> convergent bridges are MORE negatively curved : PASS

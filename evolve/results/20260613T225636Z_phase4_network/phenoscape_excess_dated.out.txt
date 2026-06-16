@@ -1,0 +1,21 @@
+Loading fish chronogram (cached) ...
+chronogram: 11638 dated tips
+
+============================================================================================
+  TIERED CONVERGENCE VERDICT with REAL DATED branch lengths (Fish Tree of Life)
+============================================================================================
+character     matched orig PTP p_few  q_hat  Mk obs/null p_excess  tier
+--------------------------------------------------------------------------------------------
+pelvic fin         30    4     0.015 0.8483       4/4.58    0.738   T2
+pectoral fin        2   (too few on chronogram -- skipped)
+dorsal fin          4   (too few on chronogram -- skipped)
+caudal fin          8    1       1.0 0.3111       1/0.93    0.674   T0
+adipose fin        53    3     0.002 0.5104       3/3.64    0.738   T2
+barbel             22    2     0.326 6.1067       3/5.24    0.984   T1
+
+HONEST NOTES:
+  - Null now uses REAL divergence times (treePL chronogram), independent of
+    the trait data -> the strongest, least-assumption neutral null we can build.
+  - Coverage drops vs Open Tree: only ray-finned fish SPECIES in the chronogram
+    are scored (extinct/non-teleost/higher taxa excluded). Reported, not hidden.
+  - Mk rate still ML-estimated under the no-convergence null (conservative).

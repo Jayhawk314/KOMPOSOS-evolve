@@ -1,0 +1,19 @@
+Phenoscape: 123 cleaned taxa across 4 fin characters
+Open Tree TNRS resolved: 108/123 names
+
+==============================================================================
+  POLARITY-AWARE CONVERGENCE  (Fitch parsimony, parameter-free)
+==============================================================================
+character      tips  steps    CI   root(ancestral)    origins(derived)
+------------------------------------------------------------------------------
+pelvic fin       65      8  0.12           present           4   CONVERGENT
+pectoral fin     19      2  0.50           present           2   CONVERGENT
+dorsal fin        9      1  1.00           present           1   single origin (NOT conv.)
+caudal fin       18      2  0.50           present           2   CONVERGENT
+
+Honest notes:
+  - steps & CI are ROOT-INDEPENDENT (the robust convergence signal);
+    steps>=2 == homoplasy == convergence. Root/origins are the polarity reading.
+  - Tree is Open Tree's, built from names only -- it never saw the trait states.
+  - Fitch has no parameters; CI=1 outcomes are reported, not hidden.
+  - Coverage caveat: only taxa Open Tree could place are scored.

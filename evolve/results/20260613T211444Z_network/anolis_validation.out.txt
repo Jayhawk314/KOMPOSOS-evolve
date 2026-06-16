@@ -1,0 +1,31 @@
+==========================================================================
+ANOLIS CONVERGENCE VALIDATION  (ecomorph label held out of the engine)
+==========================================================================
+19 species, 171 pairs, 4 islands, 5 ecomorphs
+
+pair type                            n  morph_sim  ancestry  converg.
+--------------------------------------------------------------------------
+same ECOMORPH, diff island          27      0.540     0.000     0.540
+diff ecomorph, same ISLAND          36      0.180     1.000    -0.820
+diff ecomorph, diff island         108      0.092     0.000     0.092
+
+--------------------------------------------------------------------------
+VERDICT
+  Same-ecomorph / different-island morph similarity : 0.540
+  Different-ecomorph / same-island  morph similarity : 0.180
+
+  PASS: lizards that share a NICHE look alike even on different
+  islands, MORE than lizards that merely share an island/ancestry.
+  The engine recovered convergent evolution from raw traits alone:
+  phenotype tracks ENVIRONMENT, not ancestry.
+
+Top 8 convergent pairs the engine flags
+(high morph similarity, NOT explained by shared island):
+  A_chlorocyanus_HISP    ~ A_evermanni_PR         conv=0.750  <-- same ecomorph (correct!)
+  A_cybotes_HISP         ~ A_lineatopus_JAM       conv=0.750  <-- same ecomorph (correct!)
+  A_cybotes_HISP         ~ A_gundlachi_PR         conv=0.750  <-- same ecomorph (correct!)
+  A_ricordii_HISP        ~ A_garmani_JAM          conv=0.750  <-- same ecomorph (correct!)
+  A_lineatopus_JAM       ~ A_gundlachi_PR         conv=0.750  <-- same ecomorph (correct!)
+  A_porcatus_CUBA        ~ A_chlorocyanus_HISP    conv=0.556  <-- same ecomorph (correct!)
+  A_porcatus_CUBA        ~ A_evermanni_PR         conv=0.556  <-- same ecomorph (correct!)
+  A_sagrei_CUBA          ~ A_cybotes_HISP         conv=0.556  <-- same ecomorph (correct!)

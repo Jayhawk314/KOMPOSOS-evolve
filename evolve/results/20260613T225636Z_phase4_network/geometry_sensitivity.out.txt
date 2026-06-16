@@ -1,0 +1,17 @@
+========================================================================================
+ANOLIS GEOMETRY THRESHOLD SENSITIVITY
+========================================================================================
+threshold  sim_edges  spectral_pass  sameEco  diffEco  ricci_pass  crossK  withinK  top8conv
+----------------------------------------------------------------------------------------
+     0.20         52           True   0.2412   0.6643        True  -0.696   0.2704         0
+     0.25         52           True   0.2412   0.6643        True  -0.696   0.2704         0
+     0.30         35           True   0.1206   0.7071        True -0.5365   0.2958         6
+     0.35         35           True   0.1206   0.7071        True -0.5365   0.2958         6
+     0.40         35           True   0.1206   0.7071        True -0.5365   0.2958         6
+     0.45         19           True   0.1209   0.5996        True -0.5628   0.3047         8
+     0.50         19           True   0.1209   0.5996        True -0.5628   0.3047         8
+
+HONEST READING
+  Spectral ecomorph-closeness passed 7/7 thresholds.
+  Ricci cross-island bridge negativity passed 7/7 thresholds.
+  A robust geometry claim should not depend on exactly threshold 0.30.

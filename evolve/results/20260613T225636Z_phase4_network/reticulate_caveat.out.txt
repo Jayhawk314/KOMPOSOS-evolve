@@ -1,0 +1,37 @@
+============================================================================================
+RETICULATE-HISTORY CAVEAT: TREE-ONLY CONVERGENCE CAN OVERSTATE INDEPENDENCE
+============================================================================================
+observed tree: (((A1,A2),(B1,B2)),((C1,C2),(D1,D2)));
+
+The first two scenarios have identical tip states. They differ only in the
+unobserved history: independent origin versus transfer/introgression.
+
+scenario              bio innov transfer  tree steps origins conv indepPairs sharedPairs PTP p_fewer Mk p_excess
+--------------------------------------------------------------------------------------------
+true_convergence         2        0          2       2  True          1           0         1.0      0.8733
+reticulate_transfer      1        1          2       2  True          1           0         1.0      0.8733
+introgressed_cluster     1        1          2       2  True          2           1       0.442      0.7533
+
+DETAIL
+  true_convergence:
+    biological history : derived arises independently on A1 and C1
+    derived carriers   : A1, C1
+    tree-only reading  : 2 derived origins, convergent=True
+  reticulate_transfer:
+    biological history : derived arises on A1, then transfers/introgresses to C1
+    derived carriers   : A1, C1
+    tree-only reading  : 2 derived origins, convergent=True
+  introgressed_cluster:
+    biological history : derived is inherited within A, then transfers/introgresses to C1
+    derived carriers   : A1, A2, C1
+    tree-only reading  : 2 derived origins, convergent=True
+
+HONEST READING
+  True convergence and reticulate transfer produce identical tree-only outputs here: True.
+  The MRCA/Fitch/Mk layer is doing what it can with the information it is
+  given. The missing information is the non-tree edge.
+  Therefore the dissertation should state: tree-based convergence claims are
+  conditional on the assumed species tree being the relevant inheritance
+  history for the trait. Where transfer, hybridization, introgression, or
+  symbiosis are plausible, the future extension is a phylogenetic network or
+  an explicit reticulate event model.

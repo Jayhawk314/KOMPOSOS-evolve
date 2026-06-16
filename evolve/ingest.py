@@ -81,6 +81,25 @@ def pantheria() -> pd.DataFrame:
     return df.set_index("MSW05_Binomial")
 
 
+# ----------------------------------------------------------------------------
+# AVONET (Tobias et al. 2022, Ecology Letters) -- bird traits
+# ----------------------------------------------------------------------------
+AVONET_URL = "https://ndownloader.figshare.com/files/34480856"  # figshare suppl. 1
+
+
+def avonet() -> pd.DataFrame:
+    """AVONET trait table in the BirdTree (Jetz et al. 2012) taxonomy, indexed by
+    binomial. Real measured morphometrics (Mass, beak, wing, Hand-Wing.Index, ...)
+    plus ecology (Habitat, Migration, Trophic.Level, Trophic.Niche,
+    Primary.Lifestyle) for all 9993 BirdTree species -- a 1:1 join to the bird
+    chronogram tips (which use the same Genus_species names)."""
+    x = CACHE / "avonet.xlsx"
+    if not x.exists():
+        x.write_bytes(requests.get(AVONET_URL, timeout=300).content)
+    df = pd.read_excel(x, sheet_name="AVONET3_BirdTree")
+    return df.set_index("Species3")
+
+
 # Which PanTHERIA columns feed which lens, and a short tag for each.
 LENS_COLUMNS = {
     "morphology": {

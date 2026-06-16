@@ -1,0 +1,20 @@
+==================================================================================
+  CONVERGENCE SIGNIFICANCE  (phylogenetic randomization / PTP, 999 perms)
+==================================================================================
+character      origins obs.steps  null mean  p_fewer   verdict
+----------------------------------------------------------------------------------
+pelvic fin           4         8      19.32    0.001   clustered/structured (real signal)
+pectoral fin         2         2       5.28    0.006   clustered/structured (real signal)
+dorsal fin           1         1       1.93    0.271   as random as chance (labile)
+caudal fin           2         2       2.52    0.487   as random as chance (labile)
+adipose fin          6         6       22.2    0.001   clustered/structured (real signal)
+barbel               3         3       4.88    0.071   as random as chance (labile)
+
+HONEST READING:
+  - p_fewer < 0.05 => the independent origins are FEWER than random placement
+    would give = the losses cluster phylogenetically = constrained, not 'easy
+    random' change. The convergence events are real signal above lability.
+  - p_fewer ~ large => indistinguishable from random scatter; the apparent
+    convergence could be mere lability. Reported as-is.
+  - The null is the NO-STRUCTURE extreme. A neutral-Mk 'excess homoplasy' test
+    needs branch lengths (Open Tree topology has none) -- deliberately not claimed.
