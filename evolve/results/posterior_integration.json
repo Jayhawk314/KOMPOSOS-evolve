@@ -1,0 +1,50 @@
+{
+  "n_trees": 100,
+  "overlays": {
+    "aquatic": {
+      "overlay": "aquatic",
+      "n_trees": 100,
+      "origins_min": 7,
+      "origins_median": 9,
+      "origins_max": 12,
+      "ptp_p_fewer_median": 0.005,
+      "ptp_frac_significant": 1.0,
+      "mk_p_excess_median": 0.55,
+      "mk_frac_significant": 0.0,
+      "tier_distribution": {
+        "2": 100
+      },
+      "tier_mode": 2
+    },
+    "nectarivory": {
+      "overlay": "nectarivory",
+      "n_trees": 100,
+      "origins_min": 18,
+      "origins_median": 22,
+      "origins_max": 30,
+      "ptp_p_fewer_median": 0.005,
+      "ptp_frac_significant": 1.0,
+      "mk_p_excess_median": 0.56,
+      "mk_frac_significant": 0.0,
+      "tier_distribution": {
+        "2": 100
+      },
+      "tier_mode": 2
+    },
+    "flightless": {
+      "overlay": "flightless",
+      "n_trees": 100,
+      "origins_min": 2,
+      "origins_median": 2,
+      "origins_max": 2,
+      "ptp_p_fewer_median": 0.005,
+      "ptp_frac_significant": 1.0,
+      "mk_p_excess_median": 0.59,
+      "mk_frac_significant": 0.0,
+      "tier_distribution": {
+        "2": 100
+      },
+      "tier_mode": 2
+    }
+  }
+}

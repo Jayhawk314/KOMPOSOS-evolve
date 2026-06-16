@@ -200,6 +200,63 @@ navigable view, coloured by Major clade or taxonomic order. The interactive
 overlays stay clade-local for now; this is the navigable skeleton that the
 cross-class convergence work (below) builds on.
 
+## Posterior integration — `posterior_integration.py`
+
+```bash
+python evolve/posterior_integration.py 100   # -> results/posterior_integration.json
+```
+
+Every bird verdict in the viewers rests on **one** posterior sample of the Jetz
+2012 tree, which hides phylogenetic uncertainty. This runs the full gauntlet across
+the first *N* posterior trees (streamed from the VertLife Stage2 archive) and
+reports each statistic as a **distribution**, with the tip set held fixed so the
+only thing varying is topology + branch lengths. Result over **100 posterior
+trees**:
+
+| Overlay | Origins (min–max, median) | PTP significant | Mk excess | Tier |
+|---|---|---|---|---|
+| Aquatic | 7–12 (9) | 100/100 | 0/100 | **T2 on 100/100** |
+| Nectarivory | 18–30 (22) | 100/100 | 0/100 | **T2 on 100/100** |
+| Flightless | 2–2 (2) | 100/100 | 0/100 | **T2 on 100/100** |
+
+The Tier-2 verdict is **robust across the entire posterior** — no tree flips it to
+T3, and flightlessness is exactly 2 origins on every tree. Origin counts shift
+modestly with the posterior (and are lower than the single-tree headline numbers
+because the gauntlet runs here on a fixed *representative* tip sample, every carrier
+kept; the comparison of interest is the verdict distribution, not the absolute
+count). This is the single biggest honesty upgrade: a claim that held on one tree
+but not across the posterior would be downgraded here automatically — none was.
+
+## Environment-as-driver scan (Track B) — `env_driver.py`
+
+```bash
+python evolve/env_driver.py     # -> results/env_driver.json
+```
+
+A **general** test of the thesis's environment lens — *do a trait's independent
+origins coincide with the same environmental shift (convergence with a shared
+cause)?* — run not on one cherry-picked case but across the **entire** coded
+mammalian convergence battery (marine, aerial, fossorial, myrmecophagy, hopping,
+carnivory, diurnality, giant) × **every** real per-species environmental axis in
+PanTHERIA (mean temperature, precipitation, AET water-energy), one two-sided test
+per (trait, axis) via `mk.trait_environment_test`. Each test asks whether the
+derived trait associates with that environment **more than if it had evolved
+neutrally (Mk) on the real dated tree** — i.e. beyond shared ancestry.
+
+- **Multiple testing (Idea 3):** Benjamini-Hochberg FDR across the whole battery;
+  effect size = the phylogenetically-controlled φ correlation.
+- **Sensitivity (Idea 4):** FDR-significant couplings are re-tested on an
+  extremes-only (tertile) environment split.
+
+**Result (honest negative): 21 tests, 0 survive BH-FDR q<0.05.** The strongest raw
+signals are biologically coherent and directionally consistent — fossorial mammals
+toward dry / cool / low-productivity niches across all three axes (φ ≈ 0.12–0.13),
+diurnality toward warm / wet (φ ≈ 0.16–0.19), aerial toward high productivity
+(φ ≈ 0.16) — but none clears multiple-testing correction at these effect sizes.
+Reported plainly, not inflated. **Honest scope:** mammals first because PanTHERIA
+carries the environment locally; extending the *same* scan to birds and fish needs
+the GBIF → WorldClim occurrence bridge (Layer C), the documented next data step.
+
 ## Cross-class aerial convergence (Track A) — `crossclass_aerial.py`
 
 ```bash

@@ -171,7 +171,7 @@ render millions of nodes.
 | **A ◑** | **Cross-class convergence on a dated backbone** (`crossclass_aerial.py`): graft fish+mammal+bird chronograms via deep-node calibrations, run the full gauntlet | dated clade trees + TimeTree/fossil ages | medium | medium | ✅ aerial locomotion = 6 origins, PTP p=0.001, Mk p_excess=1.0 → **T2** (stable across sensitivity sweep); interactive viewer overlay remains |
 | **3** | **Architecture shift**: data layer + on-demand compute + streaming renderer | (re-platform) | high | medium | render & analyze a >50k-tip clade smoothly |
 | **4** | Plants | Smith & Brown tree + TRY | high | medium | a plant convergence (e.g. C4, succulence) overlay |
-| **5** | **Environment layer** + occurrences → convergence-with-driver | WorldClim/CHELSA + GBIF | high | medium | a trait's origins testable against a shared environmental shift |
+| **5 ◑** | **Environment layer** → convergence-with-driver | PanTHERIA env columns now (`env_driver.py`); GBIF + WorldClim/CHELSA next | high | medium | ✅ general scan: whole mammal convergence battery × 3 climate axes, neutral-Mk control + BH-FDR + tertile sensitivity → **honest negative (0/21 survive FDR)**; GBIF→WorldClim bridge needed to extend to birds/fish |
 | **6** | All-life backbone | Open Tree (2.3M) + GTDB | very high | high | navigable to any clade; microbe branches flagged for reticulation |
 | **M (parallel) ◑** | **Molecular convergence lens (ESM-C)** — Prestin pilot (negative) + diagnosis done; next is non-circular site selection at 600M (Layer D) | OrthoDB/UniProt sequences + ESM-C | low (pilot) | low | pilot negative at 14 taxa; diagnosed as a mean-pool dilution artifact (signal in ~2/741 residues); independent recovery still pending |
 
@@ -184,6 +184,22 @@ Phase 3 re-platform.
 tree-scaling track — it needs only the mammals already in the viewer plus one
 protein's sequences, so it can run anytime as a self-contained molecular-tier
 proof and extends `echolocation_flagship.py` directly.
+
+## Cross-cutting methodology upgrades (implemented, apply to every phase)
+These harden the *honesty* of the verdict rather than adding a clade:
+- **Standing CI verification** (`verify_all.py` + `.github/workflows/verify-viewers.yml`):
+  headless-loads every committed viewer and asserts zero errors + sane origin
+  counts — the structural fix for "looked done, was broken".
+- **Posterior integration** (`posterior_integration.py`): runs the gauntlet across
+  N posterior trees and reports verdicts as DISTRIBUTIONS (bird overlays: Tier 2 on
+  100/100 trees). A claim that survives one tree but not the posterior is downgraded
+  automatically.
+- **Multiple-testing discipline + effect sizes** (`env_driver.py`, `crossclass_aerial.py`):
+  Benjamini-Hochberg FDR across batteries of tests, φ / z effect sizes, and raised
+  Monte-Carlo budgets (999/499) so "everything is T2" is properly powered.
+- **Sensitivity reporting**: verdicts are re-checked against alternative choices —
+  sample seeds + trait coding (cross-class aerial), environment threshold (tertile
+  vs median, env-driver), and tree choice (the posterior sweep itself).
 
 ## What stays the same across all phases
 - The verdict pipeline: Fitch origins → PTP randomization → neutral-Mk on dated

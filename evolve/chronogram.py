@@ -200,6 +200,54 @@ def _stream_first_tree(url: str) -> str:
         r.close()
 
 
+def _stream_n_trees(url: str, n: int) -> list[str]:
+    """Stream the first `n` Newick trees (one per line) from the zip member, reading
+    only enough compressed bytes to yield n lines. Generalizes `_stream_first_tree`
+    for posterior-distribution integration (one VertLife member holds 1000 trees)."""
+    import struct
+    import zlib
+
+    r = requests.get(url, stream=True, timeout=600)
+    try:
+        it = r.iter_content(chunk_size=65536)
+        head = next(it)
+        if head[:4] != b"PK\x03\x04":
+            raise ValueError("not a zip local file header")
+        method = struct.unpack("<H", head[8:10])[0]
+        name_len = struct.unpack("<H", head[26:28])[0]
+        extra_len = struct.unpack("<H", head[28:30])[0]
+        if method != 8:
+            raise ValueError(f"unexpected zip compression method {method}")
+        data_off = 30 + name_len + extra_len
+        dec = zlib.decompressobj(-15)
+        out = dec.decompress(head[data_off:])
+        while out.count(b"\n") < n:
+            try:
+                out += dec.decompress(next(it))
+            except StopIteration:
+                break
+        lines = out.split(b"\n")
+        return [ln.decode("latin1").strip() for ln in lines[:n] if ln.strip()]
+    finally:
+        r.close()
+
+
+def load_bird_posterior(n: int = 100) -> list[Node]:
+    """First `n` posterior samples of the Jetz et al. 2012 dated bird tree, streamed
+    from the VertLife Stage2 archive and cached (one Newick per line). Lets the
+    gauntlet run across the posterior and report verdicts as DISTRIBUTIONS instead of
+    resting on a single tree -- divergence times still trait-independent, so the
+    posterior captures phylogenetic uncertainty, not a degree of freedom to fit."""
+    sys.setrecursionlimit(300000)
+    cache = CACHE / f"bird_posterior_{n}.nwk"
+    if cache.exists():
+        return [parse_newick(s) for s in cache.read_text().splitlines() if s.strip()]
+    CACHE.mkdir(parents=True, exist_ok=True)
+    trees = _stream_n_trees(BIRD_ZIP_URL, n)
+    cache.write_text("\n".join(t if t.endswith(";") else t + ";" for t in trees))
+    return [parse_newick(t) for t in trees]
+
+
 def load_bird_chronogram() -> Node:
     """First posterior sample of the Jetz et al. 2012 dated bird tree (Hackett
     backbone, 9993 OTUs), streamed from the VertLife Stage2 archive and cached as a

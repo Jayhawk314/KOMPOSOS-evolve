@@ -220,9 +220,14 @@ Ricci curvature over a power grid identifies structural vulnerabilities (highly 
 
 ## Final Thoughts
 
-What works today: the engine synthesizes real APIs (Phenoscape, Open Tree of Life, NCBI) and datasets (PanTHERIA, AVONET, Rabosky and Upham and Jetz chronograms), runs the Fitch → PTP → dated-Mk → tier pipeline, and outputs interactive, headless-verified web viewers for mammals, birds, and fish, spliced into one unified vertebrate backbone (16,672 species across 3 classes).
+What works today: the engine synthesizes real APIs (Phenoscape, Open Tree of Life, NCBI) and datasets (PanTHERIA, AVONET, Rabosky and Upham and Jetz chronograms), runs the Fitch → PTP → dated-Mk → tier pipeline, and outputs interactive, headless-verified web viewers for mammals, birds, and fish, spliced into one unified vertebrate backbone (16,672 species across 3 classes). A standing CI harness (`verify_all.py`) re-verifies every viewer headlessly so "looked done, was broken" cannot recur silently.
 
-What is honestly *not* done: amphibians, squamates, plants, and the non-living environment layer (roadmap); cross-class convergence overlays on the unified tree; and the molecular lens beyond the single-protein Prestin pilot — which, recall, returned a clean **negative** at 14 taxa. Chapter 8's WESyS / HoTT directions are vision, not implementation.
+Three general extensions now run beyond the per-clade viewers, each ending in an honest verdict rather than a forced fit:
+- **Cross-class convergence on a dated backbone** (`crossclass_aerial.py`): grafting the fish/mammal/bird chronograms via deep-node fossil/clock calibrations (Osteichthyes ~430 Ma, Amniota ~319 Ma) and running the gauntlet on aerial locomotion gives **6 independent origins, strongly clustered (PTP p=0.001) but not in excess of neutral drift (Mk p_excess=1.0) → Tier 2** — the same downgrade the single-clade overlays show, stable across a sensitivity sweep.
+- **The environment-as-driver lens, generalized** (`env_driver.py`): the whole mammalian convergence battery × every PanTHERIA climate axis, neutral-Mk-controlled, BH-FDR across the battery. The result is an **honest negative — 0 of 21 trait-environment couplings survive correction** — though the strongest raw signals (fossorial → dry/cool, diurnality → warm/wet) are biologically coherent.
+- **The molecular lens, diagnosed** (`esmc_diagnose.py`): the Prestin negative is explained as a mean-pooling dilution artifact (signal in ~2/741 residues), with the per-site recovery flagged as partly circular.
+
+What is honestly *not* done: amphibians, squamates, plants, and the full non-living environment layer for birds/fish (the GBIF → WorldClim occurrence bridge); interactive cross-class overlays inside the unified viewer; posterior-tree integration; and the molecular lens beyond the single-protein Prestin pilot with independent (non-circular) site selection. Chapter 8's WESyS / HoTT directions are vision, not implementation.
 
 The point of the project is not breadth of claims but **rigorous verification** — including the verification that turned the first draft of this very journal from "fully operational" into the more accurate account above.
 
