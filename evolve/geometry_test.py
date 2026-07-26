@@ -18,6 +18,7 @@ from pathlib import Path
 from itertools import combinations
 
 import numpy as np
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
@@ -29,6 +30,7 @@ from komposos_wesys.geometry.grid_ricci import OllivierRicciCurvature  # noqa: E
 THRESH = 0.30
 
 
+@pytest.fixture(name="g")
 def taxon_graph() -> Category:
     """Taxon-taxon similarity graph from the morphology lens."""
     morph, _ = build_lenses()
