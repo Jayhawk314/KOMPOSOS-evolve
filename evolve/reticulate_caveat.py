@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """Reticulate-history caveat for tree-only convergence inference.
 
 The convergence gauntlet uses tree-based tools: Fitch polarity, MRCA homology,

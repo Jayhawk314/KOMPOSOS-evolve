@@ -1343,4 +1343,4 @@ The gap between vision and implementation has narrowed to the point where only t
 
 **Author:** James Ray Hawkins
 **Date:** 2026-04-07
-**License:** Apache-2.0 OR KOMPOSOS-IV-Commercial
+**License:** Apache-2.0

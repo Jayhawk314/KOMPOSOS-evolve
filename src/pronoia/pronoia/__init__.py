@@ -1,6 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
 # PRONOIA — interpretable, non-LLM prediction stack (prototype).
 # Working codename; see PRONOIA_PREDICTION_STACK.md for the full vision.
-#
 # L5 CERTIFY  -> honesty_mdl  (honesty as compression fidelity)
 # L1 FUSE     -> sheaf_probe  (cellular sheaf; H^1 = contradiction alarm)
 

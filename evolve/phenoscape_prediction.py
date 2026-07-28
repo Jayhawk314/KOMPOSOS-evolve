@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """Real-data morphology-state prediction on Phenoscape fish characters.
 
 This is a Phase 3 bridge beyond the Anolis horn validation. Phenoscape does not

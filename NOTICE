@@ -1,0 +1,43 @@
+KOMPOSOS-evolve
+Copyright (c) 2024-2026 James Ray Hawkins
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+SCOPE OF THIS LICENSE
+================================================================================
+
+The Apache 2.0 license in the LICENSE file covers the ORIGINAL SOURCE CODE of
+this repository and nothing else.
+
+It does NOT cover, and no copyright or other proprietary right is claimed in:
+
+  1. THE UNDERLYING PUBLIC BIOLOGICAL DATA this project ingests at runtime:
+       - Open Tree of Life (api.opentreeoflife.org) — ancestry/phylogeny, a
+         public open-data project.
+       - PanTHERIA (esapubs.org) — a published ecological/morphology dataset
+         from a peer-reviewed data paper (Jones et al. 2009, Ecology), archived
+         by the Ecological Society of America for public reuse.
+       - Phenoscape Knowledgebase (kb.phenoscape.org) — ontology-annotated
+         evolutionary character data, a public NSF-funded resource.
+     No raw dataset is redistributed in this repository — `evolve/ingest.py`
+     and `evolve/phenoscape_ingest.py` fetch from each source's own API/URL at
+     runtime and cache the results locally for offline re-runs; the cache is
+     gitignored, not shipped.
+
+  2. FACTUAL RESULTS derived from that data (convergence findings, statistical
+     test outcomes) are offered freely for verification, correction, and reuse.
+
+================================================================================
+INDEPENDENCE AND DISCLAIMER
+================================================================================
+
+This is an independent, unfunded project by a private individual. It is not
+affiliated with, sponsored by, reviewed by, or endorsed by Open Tree of Life,
+the Ecological Society of America, or the Phenoscape Knowledgebase project.
+
+THE SOFTWARE AND ANALYSIS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.

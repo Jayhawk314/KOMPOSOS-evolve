@@ -408,4 +408,4 @@ This is a system that doesn't just run. It runs forever — getting permanently 
 **Dead Code:** 0 of 131 files (was 19)
 **New files since last assessment:** axiom_miner.py, evolved_bridge.py, plugin_generator.py, self_corrector.py, typed_capabilities.py
 **Gaps closed since last assessment:** ZFC checks against discovered principles (not just facts), system implements missing primitives, zfc/ imports cleaned up
-**License:** Apache-2.0 OR KOMPOSOS-IV-Commercial
+**License:** Apache-2.0

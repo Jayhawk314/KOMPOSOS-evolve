@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """
 Ancestral-state polarity via Fitch parsimony  (PARAMETER-FREE -- un-fittable).
 

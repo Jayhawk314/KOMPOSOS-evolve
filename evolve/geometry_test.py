@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """
 Do the repo's Ricci / spectral modules (a) run, and (b) add anything for
 convergence?

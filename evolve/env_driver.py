@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """
 Environment-as-driver SCAN (Track B) -- a GENERAL test, not one cherry-picked case.
 

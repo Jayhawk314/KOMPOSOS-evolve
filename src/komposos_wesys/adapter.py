@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """
 WESyS Domain Adapter for KOMPOSOS-IV.
 This module provides the interface between system dynamics (waste-to-energy) 

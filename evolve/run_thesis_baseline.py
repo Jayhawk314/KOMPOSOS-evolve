@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 James Ray Hawkins
+
 """Run the thesis-critical convergence scripts and archive their outputs.
 
 This runner keeps the evidence trail separate from the analysis scripts. It
